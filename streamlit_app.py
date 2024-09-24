@@ -19,13 +19,13 @@ from snowflake.snowpark.functions import col
 cnx = st.connection("snowflake")
 session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-st.dataframe(data=my_dataframe, use_container_width=True)
-st.stop()
+#st.dataframe(data=my_dataframe, use_container_width=True)
+#st.stop()
 
 import re
 import pandas as pd
 
-\
+
 
 ingredients_list = st.multiselect(
     'Choose up to five ingredients:'
@@ -52,5 +52,5 @@ if ingredients_list:
         st.success('Your Smoothie is ordered!', icon="✅")
 
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/")
-fv_df = st.dataframe(data= fruityvice_response.json())
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fv_df = st.dataframe(data= fruityvice_response.json(), use_container_width=True)
