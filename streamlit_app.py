@@ -59,4 +59,4 @@ if ingredients_list:
 
 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/")
-fv_df = st.dataframe(data= fruityvice_response.json(), use_container_width=True)
+fv_df = st.dataframe(data= fruityvice_response.json())
